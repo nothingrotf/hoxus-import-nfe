@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start:dev": "bun run --watch src/index.ts"
+    "start": "bun run src/index.ts",
+    "start:dev": "bun run --watch src/index.ts",
+    "build": "bun build --compile --minify-whitespace --target bun --outfile server src/index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
