@@ -1,0 +1,26 @@
+{
+  "name": "hoxus-importer",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start:dev": "bun run --watch src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@elysiajs/openapi": "^1.4.10",
+    "@supabase/supabase-js": "^2.57.4",
+    "axios": "^1.12.2",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.5",
+    "elysia": "^1.4.7",
+    "fast-xml-parser": "^5.2.5",
+    "postgres": "^3.4.7",
+    "zod": "^4.1.11"
+  }
+}
