@@ -230,8 +230,23 @@ export class NFERepository {
       situacaoTributaria: (icmsData.CST || icmsData.CSOSN || '').toString().slice(0, 3) || null,
       modalidadeBaseCalculo: icmsData.modBC ? parseInt(icmsData.modBC) : null,
       valorBaseCalculo: icmsData.vBC?.toString(),
+      percentualReducaoBaseCalculo: icmsData.pRedBC?.toString(),
+      codigoBeneficioFiscal: icmsData.cBenef,
       aliquota: icmsData.pICMS?.toString(),
+      aliquotaFinalConsumidor: icmsData.pICMSUFDest?.toString(),
       valor: icmsData.vICMS?.toString(),
+      valorProprio: icmsData.vICMSProp?.toString(),
+      valorDesonerado: icmsData.vICMSDeson?.toString(),
+      valorOperacao: icmsData.vICMSOp?.toString(),
+      percentualDiferimento: icmsData.pDif?.toString(),
+      valorDiferido: icmsData.vICMSDif?.toString(),
+      motivoDesoneracao: icmsData.motDesICMS ? parseInt(icmsData.motDesICMS) : null,
+      valorRetencao: icmsData.vICMSSubstituto?.toString(),
+      aliquotaRetencao: icmsData.pRedBCEfet?.toString(),
+      quantidadeTributada: icmsData.qBCMono?.toString(),
+      quantidadeTributadaRetencao: icmsData.qBCMonoReten?.toString(),
+      aliquotaCreditoSimples: icmsData.pCredSN?.toString(),
+      valorCreditoSimples: icmsData.vCredICMSSN?.toString(),
     })
   }
 
@@ -243,7 +258,13 @@ export class NFERepository {
       situacaoTributaria: ipiData.CST,
       valorBaseCalculo: ipiData.vBC?.toString(),
       aliquota: ipiData.pIPI?.toString(),
+      quantidadeTotal: ipiData.qUnid?.toString(),
+      valorUnidade: ipiData.vUnid?.toString(),
       valor: ipiData.vIPI?.toString(),
+      cnpjProdutor: ipi.CNPJProd,
+      codigoSelo: ipi.cSelo,
+      quantidadeSelo: ipi.qSelo ? parseInt(ipi.qSelo) : null,
+      codigoEnquadramento: ipiData.cEnq || '999',
     })
   }
 
@@ -259,6 +280,8 @@ export class NFERepository {
       situacaoTributaria: pisData.CST,
       valorBaseCalculo: pisData.vBC?.toString(),
       aliquota: pisData.pPIS?.toString(),
+      quantidadeVendida: pisData.qBCProd?.toString(),
+      aliquotaReais: pisData.vAliqProd?.toString(),
       valor: pisData.vPIS?.toString(),
     })
   }
@@ -275,6 +298,8 @@ export class NFERepository {
       situacaoTributaria: cofinsData.CST,
       valorBaseCalculo: cofinsData.vBC?.toString(),
       aliquota: cofinsData.pCOFINS?.toString(),
+      quantidadeVendida: cofinsData.qBCProd?.toString(),
+      aliquotaReais: cofinsData.vAliqProd?.toString(),
       valor: cofinsData.vCOFINS?.toString(),
     })
   }
@@ -283,7 +308,9 @@ export class NFERepository {
     await tx.insert(schema.nfeImpostosIi).values({
       itemId: itemId,
       valorBaseCalculo: ii.vBC?.toString(),
+      valorDespesasAduaneiras: ii.vDespAdu?.toString(),
       valor: ii.vII?.toString(),
+      valorIof: ii.vIOF?.toString(),
     })
   }
 
