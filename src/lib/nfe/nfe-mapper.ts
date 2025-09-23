@@ -428,7 +428,7 @@ export class NFeMapper {
         cnpjProdutor: ipi.CNPJProd || null,
         codigoSelo: ipi.cSelo || null,
         quantidadeSelo: ipi.qSelo ? parseInt(ipi.qSelo) : null,
-        codigoEnquadramento: ipi.cEnq || null
+        codigoEnquadramento: ipi.cEnq || 999
       });
     } catch (error) {
       console.error('Erro no processamento IPI:', error);
