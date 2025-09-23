@@ -88,7 +88,7 @@ export const nfeProcessingSchema = z.object({
       fone: z.string().optional(),
     }).optional(),
     IE: z.string().optional(),
-    email: z.string().email().optional(),
+    email: z.string().optional(),
   }).optional(),
   det: z.array(z.object({
     nItem: integerSchema,
