@@ -46,7 +46,7 @@ export class NFeMapper {
         company_id: companyId,
         chave_acesso: nfe.chaveAcesso,
         natureza_operacao: nfe.ide.natOp,
-        serie: (serie >= 1 && serie <= 999) ? serie : 1,
+        serie: (serie >= 0 && serie <= 999) ? serie : 1,
         numero: (numero >= 1 && numero <= 999999999) ? numero : 1,
         data_emissao: new Date(nfe.ide.dhEmi).toISOString().replace('T', ' ').replace('Z', ''),
         data_entrada_saida: nfe.ide.dhSaiEnt ? new Date(nfe.ide.dhSaiEnt).toISOString().replace('T', ' ').replace('Z', '') : null,
